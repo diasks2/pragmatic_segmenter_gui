@@ -28,10 +28,9 @@ LANGUAGE_CODES = {
   nil  => 'Other'
 }
 
-Shoes.app do
+Shoes.app(title: "Pragmatic Segmenter") do
   background "#fff"
-  border("#F27A24",
-         strokewidth: 6)
+  border("#F27A24", strokewidth: 6)
 
   stack(margin: 12) do
     flow do
@@ -44,7 +43,7 @@ Shoes.app do
       para "Enter the file path and name of the new file that will be created (i.e. /Desktop/segmented_text.txt):"
     end
     flow do
-      @file_output_path = edit_line
+      @file_output_path = edit_line width: 500
     end
     flow do
       para "Select a Language:"
@@ -53,7 +52,7 @@ Shoes.app do
       @language = list_box items: LANGUAGE_CODES.values
     end
     flow do
-      @push = button "Segment"
+      @push = button "Create Segmented File"
     end
     @note = para ''
     @push.click do
